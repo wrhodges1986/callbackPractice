@@ -27,6 +27,11 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
+  // Finished!
+var first = function(array, callback) {
+  var firstItem = array[0];
+  callback(firstItem);
+};
   
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
@@ -41,6 +46,11 @@ first(names, function(firstName){
 
 
   //Code Here for last
+  // Finished!
+var last = function(array, callback) {
+  var lastItem = array[array.length - 1];
+  callback(lastItem);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -59,10 +69,15 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+  // Finished
+var multiply = function(num1, num2, callback) {
+  var product = num1 * num2;
+  callback(product);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
-})
+});
 
 
 
@@ -75,13 +90,23 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
-
+  // Finished
+var contains = function(array, searchItem, callback) {
+  var yes = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === searchItem) {
+	  yes = true;
+	}
+  }
+  callback(yes);
+};  
+  
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(yes){
   if(yes === true){
-    'Colt is in the array';
+    console.log('Colt is in the array');
   } else {
-    'Colt is not in the array';
+    console.log('Colt is not in the array');
   }
 });
 
@@ -95,6 +120,17 @@ contains(names, 'Colt', function(yes){
 
 
     //Code Here for uniq
+var uniq = function(array, callback) {
+  for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array.length; j++) {
+	  if (array[i] === array[j]) {
+	    array[j].splice(j, 1);
+		i--;
+	  }
+	}
+  }
+  callback(array);
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
@@ -111,6 +147,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+var each = function(array, callback) {
+  for (var i = 0; i < array.length; i++) {
+    callback(array[i], i);
+  }
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -128,6 +169,13 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
+ var getUserById = function(idNumber, callback) {
+   for (var i = 0; i < users.length; i++) {
+     if (users[i].id === idNumber) {
+	   callback(users[i]);
+	 }
+   }
+ };
 
 var users = [
   {
