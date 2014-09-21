@@ -121,13 +121,20 @@ contains(names, 'Colt', function(yes){
 
     //Code Here for uniq
 var uniq = function(array, callback) {
+  var nameCounter = 0;;
+
   for (var i = 0; i < array.length; i++) {
     for (var j = 0; j < array.length; j++) {
 	  if (array[i] === array[j]) {
-	    array[j].splice(j, 1);
-		i--;
+	    nameCounter++;
+		if (nameCounter === 2) {
+		  array.splice(j, 1);
+		  i--;
+		  nameCounter = 0;
+		}
 	  }
 	}
+	nameCounter = 0;
   }
   callback(array);
 };
